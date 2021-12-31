@@ -7,7 +7,7 @@
         :total-visible="7"
       ></v-pagination>
     </div>
-    <SingleMovie :movies = "movies"></SingleMovie>
+    <SingleMovie :movies = "movies" @movie-detail="movieDetail($event)"></SingleMovie>
   </div>
 </template>
 
@@ -38,6 +38,12 @@ export default {
           
         });
     },
+  },
+  methods:{
+    movieDetail(movie){
+      console.log(movie);
+      this.$emit('send-mov',movie);
+    }
   },
   mounted(){
     const api_link = 'https://api.themoviedb.org/3/discover/movie?api_key=11f20a2f7d9fda9571965c5ed8d33d4e&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page='+this.page+'&with_watch_monetization_types=flatrate'

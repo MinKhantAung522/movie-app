@@ -32,12 +32,11 @@ export default {
   data() {
     return {
       image_start: "https://image.tmdb.org/t/p/w500",
-      
     };
   },
   methods:{
       displayEach(mov){
-        this.$emit("send",mov);
+        this.$emit("movie-detail",mov)
         this.$router.push("/detail/"+mov.title);
       }
   }
