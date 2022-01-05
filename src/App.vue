@@ -14,9 +14,7 @@ export default {
   },
   methods:{
     movDetail(mov){
-      console.log(mov);
       this.currentMovie = mov;
-      console.log(this.currentMovie);
     }
   }
 };

@@ -5,6 +5,7 @@
         v-model="page"
         :length="500"
         :total-visible="7"
+        circle
       ></v-pagination>
     </div>
     <SingleMovie :movies = "movies" @movie-detail="movieDetail($event)"></SingleMovie>
