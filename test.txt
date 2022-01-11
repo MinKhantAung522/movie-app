@@ -1,0 +1,119 @@
+<div class="row header-row m-3">
+      <div class="col-md-4 col-lg-4" >
+        <img
+          :src="image_start + currentMovie.poster_path"
+          alt="movie-poster"
+          class="img-fluid"
+        />
+      </div>
+      <div class="col-sm-8">
+        <h3 class="text-white">{{ detail.title }}</h3>
+        <small class="text-white"
+          >Release Date : {{ detail.release_date }} /
+          <span>{{ detail.status }}</span>
+        </small>
+        <hr class="text-warning" />
+        <div v-for="genre in detail.genres" :key="genre.id" class="pill">
+          {{ genre.name }}
+        </div>
+        <hr class="text-warning" />
+        <span class="text-white">Runtime : {{ detail.runtime }}mins</span>
+        <div class="text-white">
+          <span>Language :</span>
+          <span
+            v-for="language in detail.spoken_languages"
+            :key="language.iso_639_1"
+          >
+            {{ language.name }} .
+          </span>
+        </div>
+        <div class="text-white">
+          <span>Production Country :</span
+          ><span
+            v-for="country in detail.production_countries"
+            :key="country.iso_3166_1"
+          >
+            {{ country.name }}
+          </span>
+        </div>
+        <hr class="text-warning" />
+        <h4 class="text-warning">Popularity</h4>
+        <div class="row">
+          <div class="col-sm-1">
+            <div class="text-white rating">
+              <h4 class="text-dark">{{ detail.vote_average }}</h4>
+            </div>
+          </div>
+          <div class="col-sm-11 text-white">
+            <div>
+              <img
+                src="../assets/star.png"
+                alt="rate"
+                style="width: 30px; height: 30px"
+              />
+              <img
+                src="../assets/star.png"
+                alt="rate"
+                style="width: 30px; height: 30px"
+              />
+              <img
+                src="../assets/star.png"
+                alt="rate"
+                style="width: 30px; height: 30px"
+              />
+              <img
+                src="../assets/star.png"
+                alt="rate"
+                style="width: 30px; height: 30px"
+              />
+              <img
+                src="../assets/star.png"
+                alt="rate"
+                style="width: 30px; height: 30px"
+              />
+            </div>
+            <div>
+              <span>Popularity : </span><span>{{ detail.popularity }}</span>
+            </div>
+          </div>
+        </div>
+        <hr class="text-warning" />
+        <div class="text-white">
+          <div><span>Budget : </span> ${{ detail.budget }}</div>
+          <div><span>Revenue : </span>${{ detail.revenue }}</div>
+        </div>
+        <hr class="text-warning" />
+        <div class="text-white">
+          <h4 class="text-warning">Votes</h4>
+          <div><span>Vote_average : </span> {{ detail.vote_average }}</div>
+          <div><span>Vote_count : </span>{{ detail.vote_count }}</div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row ms-5">
+      <div class="col-md-12 col-sm-12 col-lg-2">
+        <img
+          :src="image_start + currentMovie.poster_path"
+          alt=""
+          style="height: 300px; width: 200px"
+        />
+      </div>
+      <div class="col-md-0 col-sm-0 col-lg-10 mt-5">
+        <div class="ms-5">
+          <h1 class="text-darkorange">{{currentMovie.title}}</h1>
+        </div>
+        
+      </div>
+    </div>
