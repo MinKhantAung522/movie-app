@@ -22,7 +22,8 @@
               <span class="text-white">Runtime : {{ detail.runtime }}mins</span>
             </small>
             <hr class="text-warning" />
-            <div v-for="genre in detail.genres" :key="genre.id" class="pill">
+            <!--genres-->
+            <div v-for="genre in detail.genres" :key="genre.id" class="pill" @click="toGenre(genre)">
               {{ genre.name }}
             </div>
             <hr class="text-warning" />
@@ -244,6 +245,9 @@ export default {
     showDetails() {
       this.$emit("reviews", this.reviews);
       this.$router.push("/reviews");
+    },
+    toGenre(g) {
+      this.$router.push("/genre/" + g.id);
     },
   },
   mounted() {

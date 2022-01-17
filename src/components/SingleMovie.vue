@@ -41,6 +41,7 @@ export default {
 }
 .card{
   border: black solid 1px;
+  cursor: pointer;
 }
 #card-title{
     position: absolute;

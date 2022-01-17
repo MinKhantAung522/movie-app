@@ -5,6 +5,8 @@ import Detail from '../components/Detail.vue'
 import Reviews from '../components/Reviews.vue'
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
+import Search from '../views/Search.vue'
+import DisplayGenre from '../views/DisplayGenre.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,9 +16,21 @@ const routes = [
     component: Home
   },
   {
+    path: '/genre/:genreid',
+    name: 'genre',
+    component: DisplayGenre,
+    props:true
+  },
+  {
     path: '/signup',
     name: 'SignUp',
     component: SignUp
+  },
+  {
+    path: '/search/:searchResult',
+    name: 'Search',
+    component: Search,
+    props:true
   },
   {
     path: '/login',

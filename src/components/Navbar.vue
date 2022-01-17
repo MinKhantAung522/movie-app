@@ -22,7 +22,7 @@
             style="--bs-scroll-height: 100px"
           >
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active " aria-current="page" href="#"><i class="fas fa-home"></i>Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Movie</a>
@@ -59,14 +59,9 @@
             </li>
           </ul>
           <div class="d-flex">
-            <router-link to="/signup">SignUp</router-link>
+            <router-link to="/signup" class="mx-3">SignUp</router-link>
             <router-link to="/login">Login</router-link>
-            <img
-              src="../assets/search.png"
-              alt="search"
-              class="contact"
-              @click="showSearch = !showSearch"
-            />
+            <i class="fas fs-3 fa-search text-darkorange mx-3"  @click="showSearch = !showSearch"></i>
           </div>
         </div>
       </div>
@@ -79,8 +74,9 @@
           placeholder="Search Movies &amp; Series"
           aria-label="search movies and series"
           aria-describedby="button-addon2"
+          v-model="search"
         />
-        <button class="btn btn-warning" type="button" id="button-addon2">
+        <button class="btn btn-warning" type="button" id="button-addon2" @click="showSearchResults">
           Search
         </button>
       </div>
@@ -93,8 +89,16 @@ export default {
   data() {
     return {
       showSearch: false,
+      search:""
     };
   },
+  methods:{
+    showSearchResults(){
+      this.$router.push("/search/"+this.search)
+      this.search = ""
+      this.showSearch = false
+    }
+  }
 };
 </script>
 
@@ -102,6 +106,9 @@ export default {
 .contact {
   height: 35px;
   width: 35px;
+  cursor: pointer;
+}
+.fa-search{
   cursor: pointer;
 }
 </style>
