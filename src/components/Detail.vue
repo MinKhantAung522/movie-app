@@ -3,7 +3,7 @@
     <div class="header-container">
       <img
         :src="image_start + currentMovie.backdrop_path"
-        alt="Snow"
+        alt="backdrop"
         class="background-backdrop"
       />
       <div class="centered">
@@ -15,7 +15,7 @@
             class="me-5"
           />
           <div>
-            <h3 class="text-white">{{ detail.title }}</h3>
+            <h3 class="text-white font1 fw-bolder">{{ detail.title }}</h3>
             <small class="text-white"
               >Release Date : {{ detail.release_date }} /
               <span>{{ detail.status }}</span> /
@@ -23,24 +23,22 @@
             </small>
             <hr class="text-warning" />
             <!--genres-->
-            <div v-for="genre in detail.genres" :key="genre.id" class="pill" @click="toGenre(genre)">
+            <div v-for="genre in detail.genres" :key="genre.id" class="pill fw-bold" @click="toGenre(genre)">
               {{ genre.name }}
             </div>
             <hr class="text-warning" />
             <div class="mt-4">
-              <img src="../assets/list.png" alt="" class="me-3" />
-              <img src="../assets/heart.png" alt="" class="mx-3" />
-              <img src="../assets/bookmark.png" alt="" class="mx-3" />
-              <img src="../assets/rate.png" alt="" class="mx-3" />
-              <img src="../assets/play.png" alt="" /><span class="text-white"
-                >Play Trailer</span
-              >
+             <i class="fas fa-list text-black fs-3 rounded bg-darkorange p-2 me-2 pointer" title="list"></i>
+              <i class="fas fa-heart text-black fs-3 rounded bg-darkorange p-2 m-2 pointer" title="love"></i>
+              <i class="fas fa-bookmark text-black fs-3 rounded bg-darkorange p-2 m-2 pointer" title="bookmark"></i>
+              <i class="fas fa-star text-black fs-3 rounded bg-darkorange p-2 m-2 pointer" title="rate"></i>
+              <a @click="youtube" target="_blank"><i class="fas fa-play text-black fs-4 rounded bg-darkorange p-2 m-2 pointer" title="paly trailer">Watch Trailer</i></a>
             </div>
             <hr class="text-warning" />
             <div>
-              <p class="text-white">{{ detail.tagline }}</p>
-              <h3 class="text-warning">Overview</h3>
-              <p class="text-white">{{ detail.overview }}</p>
+              <p class="text-white fst-italic fw-bold font2">"{{ detail.tagline }}"</p>
+              <h3 class="text-warning font1">Overview</h3>
+              <p class="text-white font2">{{ detail.overview }}</p>
             </div>
           </div>
         </div>
@@ -50,7 +48,7 @@
       <div class="col-10">
         <!-- Cast -->
         <div>
-          <h3 class="text-warning mb-3 ms-5">Casts</h3>
+          <h3 class="text-warning my-3 ms-5 font1">Casts</h3>
           <v-sheet
             class="mx-auto my-auto"
             max-width="100%"
@@ -70,9 +68,9 @@
               </v-slide-item>
             </v-slide-group>
           </v-sheet>
-        </div><hr class="text-warning">
+        </div><hr class="text-warning">   
         <!--Reviews-->
-        <h3 class="text-warning mt-5 ms-5">Reviews</h3>
+        <h3 class="text-warning mt-5 ms-5 font1">Reviews</h3>
         <div v-if="reviews[0]">
           <div
             v-for="review in reviews.slice(0, 1)"
@@ -174,7 +172,7 @@
         <Review></Review>
         <hr class="text-warning">
         <!-- similarMovie -->
-        <h3 class="text-warning mb-3 ms-5">Similar Movies</h3>
+        <h3 class="text-warning mb-3 ms-5 font1">Similar Movies</h3>
         <v-sheet
           class="mx-auto my-auto"
           max-width="100%"
@@ -239,6 +237,8 @@ export default {
       similar_movies: [],
       production_company: [],
       reviews: [],
+      videos:[],
+      video_path:"https://www.youtube.com/watch?v="
     };
   },
   methods: {
@@ -249,6 +249,9 @@ export default {
     toGenre(g) {
       this.$router.push("/genre/" + g.id);
     },
+    youtube(){
+      window.open(this.video_path+this.videos.key)
+    }
   },
   mounted() {
     //fetch detail
@@ -309,6 +312,12 @@ export default {
         console.log(data2, "review");
         this.reviews = data2;
       });
+      //fetch videos
+      axios.get(this.api_start+this.currentMovie.id+"/videos?api_key="+this.api_key)
+      .then((data3)=>{
+        this.videos = data3.data.results;
+        this.videos = this.videos[0];
+      })
   },
 };
 </script>
@@ -318,7 +327,7 @@ export default {
   display: inline-block;
   background-color: darkorange;
   border-radius: 20px;
-  padding: 7px;
+  padding:  7px 20px;
   margin-right: 5px;
   cursor: pointer;
 }
@@ -344,6 +353,9 @@ export default {
 .background-backdrop {
   filter: opacity(10%);
   width: 100%;
+}
+.bg-darkorange{
+  background: darkorange;
 }
 
 </style>

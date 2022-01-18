@@ -8,6 +8,8 @@
             :src="image_start + movie.poster_path"
             class="card-img-top"
             alt="item-logo"
+            width="70px"
+            height="400px"
           />
           <div class="card-body overflow-hidden detail" style="height:70px">
             <h5 class="card-title">{{ movie.title }}</h5>

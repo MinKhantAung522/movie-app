@@ -26,7 +26,7 @@
                 style="height: 50px; width: 50px"
               />
             </div>
-            <h4 class="card-title ms-3 text-warning display-inline">
+            <h4 class="card-title ms-3 text-warning display-inline font1">
               {{ review.author }}
             </h4>
             <span class="bg-black px-2 py-1 ms-2 rounded"
@@ -42,7 +42,7 @@
           </div>
           <div><small class="text-muted fst-italic fw-bolder">Created at {{ review.created_at }}</small></div>
           <div v-if="show">
-            <p class="card-text text-light">
+            <p class="card-text text-light font2">
               {{ review.content.substring(0, 300)
               }}<span class="ms-2 readMore" @click="show = !show"
                 >Read More</span

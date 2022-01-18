@@ -1,14 +1,13 @@
 <template>
   <div>
     <div class="my-4">
-      <img src="../assets/facebook.png" alt="" style="height:30px" class="me-2">
-      <img src="../assets/twitter.png" alt="" style="height:30px" class="me-2">
-      <img src="../assets/instragm.png" alt="" style="height:30px" class="me-2">
-      <span class="text-warning me-2">|</span><span><img src="../assets/home.png" alt="" style="height:30px"></span>
+      <img src="../assets/facebook.png" alt="" style="height:30px" class="me-3">
+      <img src="../assets/twitter.png" alt="" style="height:30px" class="me-3">
+      <img src="../assets/instragm.png" alt="" style="height:30px" class="me-3">
     </div>
-       <h6 class="text-warning my-2">Production Company</h6>
+       <h6 class="text-warning my-2 font1">Production Company</h6>
       <div v-for="company in production_company" :key="company.id">
-        <small class="text-white">{{company.name}}</small>
+        <small class="text-white font2">{{company.name}}</small>
       </div>
   </div>
 </template>

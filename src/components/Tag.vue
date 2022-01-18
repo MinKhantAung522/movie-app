@@ -1,14 +1,14 @@
 <template>
   <div class="border border-secondary">
     <div class="p-1">
-      <h2 class="text-warning">Genre Lists</h2>
+      <h2 class="text-warning font1">Genre Lists</h2>
       <div
         v-for="genre in genres"
         :key="genre.id"
-        class="pill mt-2"
+        class="pills fw-bold mt-2 me-1"
         @click="toGenre(genre)"
       >
-        {{ genre.name }}
+        {{ genre.name }} 
       </div>
     </div>
     <hr class="text-warning" />
@@ -42,7 +42,7 @@ export default {
 
 <style>
 .pills {
-  display: inline;
+  display: inline-block;
   background-color: darkorange;
   border-radius: 20px;
   padding: 7px;

@@ -24,12 +24,6 @@
             <li class="nav-item">
               <a class="nav-link active " aria-current="page" href="#"><i class="fas fa-home"></i>Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Movie</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Series</a>
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -39,7 +33,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Catagories
+                Movies
               </a>
               <ul
                 class="dropdown-menu"

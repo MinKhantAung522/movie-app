@@ -31,7 +31,19 @@ export default {
 };
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
 .text-darkorange {
   color: darkorange;
+}
+.pointer{
+  cursor: pointer;
+}
+.font1{
+  font-family: 'Russo One', sans-serif;
+font-family: 'Secular One', sans-serif;
+}
+.font2{
+  font-family: 'Roboto', sans-serif;
 }
 </style>
